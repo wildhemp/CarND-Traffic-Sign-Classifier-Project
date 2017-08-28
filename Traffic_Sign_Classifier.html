@@ -15548,7 +15548,7 @@ a = np.array([[ 0.24879643,  0.07032244,  0.12641572,  0.34763842,  0.07893497,
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Print out the top five softmax probabilities for the predictions on the German traffic sign images found on the web. </span>
@@ -15560,10 +15560,14 @@ a = np.array([[ 0.24879643,  0.07032244,  0.12641572,  0.34763842,  0.07893497,
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">values</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">top5_values</span><span class="p">):</span>
     <span class="n">indices</span> <span class="o">=</span> <span class="n">top5_indices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Probabilities for </span><span class="si">{}</span><span class="s1"> sign:&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sign_names</span><span class="p">[</span><span class="n">y_web</span><span class="p">[</span><span class="n">i</span><span class="p">]]))</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;| Probability</span><span class="se">\t\t</span><span class="s1">|     Prediction</span><span class="se">\t\t\t\t</span><span class="s1">|&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;|:---------------------:|:---------------------------------------------:| &#39;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
         <span class="n">index</span> <span class="o">=</span> <span class="n">indices</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  </span><span class="si">{}</span><span class="s1">: </span><span class="si">{:.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sign_names</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">prob</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;| </span><span class="si">{:.4f}</span><span class="se">\t\t</span><span class="s1">|  </span><span class="si">{:&lt;50}</span><span class="s1">|&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prob</span><span class="p">,</span> <span class="n">sign_names</span><span class="p">[</span><span class="n">index</span><span class="p">]))</span>
 </pre></div>
 
 </div>
@@ -15596,36 +15600,56 @@ a = np.array([[ 0.24879643,  0.07032244,  0.12641572,  0.34763842,  0.07893497,
  [25 28 24 20 22]
  [17 14 12 10  9]]
 
+
 Probabilities for b&#39;Slippery road&#39; sign:
-  b&#39;Slippery road&#39;: 0.6778
-  b&#39;Bicycles crossing&#39;: 0.1354
-  b&#39;No passing for vehicles over 3.5 metric tons&#39;: 0.0780
-  b&#39;Wild animals crossing&#39;: 0.0512
-  b&#39;Road work&#39;: 0.0434
+
+| Probability		|     Prediction				|
+|:---------------------:|:---------------------------------------------:| 
+| 0.6778		|  b&#39;Slippery road&#39;                                  |
+| 0.1354		|  b&#39;Bicycles crossing&#39;                              |
+| 0.0780		|  b&#39;No passing for vehicles over 3.5 metric tons&#39;   |
+| 0.0512		|  b&#39;Wild animals crossing&#39;                          |
+| 0.0434		|  b&#39;Road work&#39;                                      |
+
 Probabilities for b&#39;No vehicles&#39; sign:
-  b&#39;No vehicles&#39;: 0.9999
-  b&#39;Speed limit (30km/h)&#39;: 0.0000
-  b&#39;Yield&#39;: 0.0000
-  b&#39;Speed limit (100km/h)&#39;: 0.0000
-  b&#39;Speed limit (120km/h)&#39;: 0.0000
+
+| Probability		|     Prediction				|
+|:---------------------:|:---------------------------------------------:| 
+| 0.9999		|  b&#39;No vehicles&#39;                                    |
+| 0.0000		|  b&#39;Speed limit (30km/h)&#39;                           |
+| 0.0000		|  b&#39;Yield&#39;                                          |
+| 0.0000		|  b&#39;Speed limit (100km/h)&#39;                          |
+| 0.0000		|  b&#39;Speed limit (120km/h)&#39;                          |
+
 Probabilities for b&#39;Bicycles crossing&#39; sign:
-  b&#39;Bicycles crossing&#39;: 0.7255
-  b&#39;Children crossing&#39;: 0.2739
-  b&#39;Slippery road&#39;: 0.0006
-  b&#39;Beware of ice/snow&#39;: 0.0000
-  b&#39;Right-of-way at the next intersection&#39;: 0.0000
+
+| Probability		|     Prediction				|
+|:---------------------:|:---------------------------------------------:| 
+| 0.7255		|  b&#39;Bicycles crossing&#39;                              |
+| 0.2739		|  b&#39;Children crossing&#39;                              |
+| 0.0006		|  b&#39;Slippery road&#39;                                  |
+| 0.0000		|  b&#39;Beware of ice/snow&#39;                             |
+| 0.0000		|  b&#39;Right-of-way at the next intersection&#39;          |
+
 Probabilities for b&#39;Road work&#39; sign:
-  b&#39;Road work&#39;: 1.0000
-  b&#39;Children crossing&#39;: 0.0000
-  b&#39;Road narrows on the right&#39;: 0.0000
-  b&#39;Dangerous curve to the right&#39;: 0.0000
-  b&#39;Bumpy road&#39;: 0.0000
+
+| Probability		|     Prediction				|
+|:---------------------:|:---------------------------------------------:| 
+| 1.0000		|  b&#39;Road work&#39;                                      |
+| 0.0000		|  b&#39;Children crossing&#39;                              |
+| 0.0000		|  b&#39;Road narrows on the right&#39;                      |
+| 0.0000		|  b&#39;Dangerous curve to the right&#39;                   |
+| 0.0000		|  b&#39;Bumpy road&#39;                                     |
+
 Probabilities for b&#39;No entry&#39; sign:
-  b&#39;No entry&#39;: 1.0000
-  b&#39;Stop&#39;: 0.0000
-  b&#39;Priority road&#39;: 0.0000
-  b&#39;No passing for vehicles over 3.5 metric tons&#39;: 0.0000
-  b&#39;No passing&#39;: 0.0000
+
+| Probability		|     Prediction				|
+|:---------------------:|:---------------------------------------------:| 
+| 1.0000		|  b&#39;No entry&#39;                                       |
+| 0.0000		|  b&#39;Stop&#39;                                           |
+| 0.0000		|  b&#39;Priority road&#39;                                  |
+| 0.0000		|  b&#39;No passing for vehicles over 3.5 metric tons&#39;   |
+| 0.0000		|  b&#39;No passing&#39;                                     |
 </pre>
 </div>
 </div>
